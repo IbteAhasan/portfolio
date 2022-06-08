@@ -5,16 +5,20 @@ import { Wrapper } from "../styles/globalStyles";
 import Footer from '../components/footer';
 import NewsLetter from '../components/newsletter';
 import LoadingBar from 'react-top-loading-bar'
+import {useLocation} from '@reach/router'
 export default function Layout({children}) {
   const [progress, setProgress] = useState(30)
   useEffect(() => {
+    
     const timer = setTimeout(()=>setProgress(100),"250")
     return () => {
       clearTimeout(timer)
     };
   }, []);
   return (
+    
     <main>
+      
       <Theme>
         <Wrapper>
         <LoadingBar
