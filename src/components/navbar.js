@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Night from "./icons/night";
+import Light from "./icons/light";
 import { Link } from "gatsby";
 import { NavFadeIn, NavSlideIn } from "../styles/keyframes";
 const NavWrapper = styled.nav`
@@ -10,13 +11,18 @@ const NavWrapper = styled.nav`
   width: 100%;
 `;
 const Toggler = styled.button`
+  cursor: pointer;
   border: none;
   border-radius: 8px;
   padding: 8px;
-  background-color: #eaeaea;
+  background-color: ${(props) => props.theme.colors.border};
   z-index: 50;
+  transition: transform 0.1s ease;
+  &:hover {
+    transform: scale(1.075);
+  }
   svg {
-    color: #666666;
+    color: ${(props) => props.theme.colors.primary};
     height: 18px;
     width: 18px;
   }
@@ -42,8 +48,12 @@ const NavItem = styled.li`
 
 const NavLink = styled(Link)`
   text-decoration: none;
-  color: black;
-  font-weight: ${(props) => (props.active ? "700" : "400")};
+  color: ${(props) => props.theme.colors.secondary};
+  font-weight: 400;
+  &.active {
+    color: ${(props) => props.theme.colors.primary};
+    font-weight: 600;
+  }
 `;
 
 const HamBtn = styled.button`
@@ -65,7 +75,7 @@ const Hamburger = styled.div`
     width: 25px;
     position: absolute;
     top: 50%;
-    background-color: black;
+    background-color: ${(props) => props.theme.colors.primary};
     border-radius: 8px;
     transform: ${(props) =>
       props.openMenu ? "rotate(-225deg)" : "rotate(0deg)"};
@@ -100,7 +110,7 @@ const HamMenu = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  background-color: #fafafa;
+  background-color: ${(props) => props.theme.colors.background1};
   z-index: 30;
   @media ${(props) => props.theme.breakpoints.md} {
     display: ${(props) => (props.openMenu ? "flex" : "none")};
@@ -109,7 +119,7 @@ const HamMenu = styled.div`
 `;
 const MNavLink = styled(Link)`
   text-decoration: none;
-  color: gray;
+  color: ${(props) => props.theme.colors.secondary};
   font-size: 19px;
   line-height: 130%;
   padding: 1.3rem 2.8rem;
@@ -117,7 +127,7 @@ const MNavLink = styled(Link)`
   animation-delay: calc(0.15s * ${(props) => props.index});
   animation-fill-mode: both;
 `;
-export default function Navbar() {
+export default function Navbar({ themeToggler, theme }) {
   const [menuState, setmenuState] = useState(false);
   const mobileMenu = () => {
     setmenuState(!menuState);
@@ -139,15 +149,13 @@ export default function Navbar() {
 
   const navMenuItems = [
     { name: "Home", link: "/" },
-    { name: "Projects", link: "/" },
-    { name: "Blog", link: "/" },
-    { name: "Contact", link: "/" },
+    { name: "Projects", link: "/projects" },
+    { name: "Blog", link: "/blog" },
+    { name: "Contact", link: "/contact" },
   ];
-  
 
   return (
     <>
-     
       <NavWrapper>
         <NavItemsWrapper>
           <HamBtn onClick={mobileMenu}>
@@ -160,13 +168,15 @@ export default function Navbar() {
           <NavItems>
             {navMenuItems.map((item, i) => (
               <NavItem key={i}>
-                <NavLink to={item.link}>{item.name}</NavLink>
+                <NavLink activeClassName="active" to={item.link}>
+                  {item.name}
+                </NavLink>
               </NavItem>
             ))}
           </NavItems>
 
-          <Toggler>
-            <Night />
+          <Toggler onClick={themeToggler}>
+            {theme === "Light" ? <Night /> : <Light />}
           </Toggler>
         </NavItemsWrapper>
         <HamMenu openMenu={menuState}>

@@ -14,7 +14,7 @@ ${normalize}
   }
 body{
     position: relative;
-    background-color: #F9FAFB;
+    background-color: ${(props) => props.theme.colors.background1};
 }
 
 /* width */
@@ -25,12 +25,12 @@ body{
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: rgb(248, 248, 248);
+  background: ${(props) => props.theme.colors.faded};
 }
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background:black;
+  background:${(props) => props.theme.colors.primary};
   border-radius: 2px;
 }
 

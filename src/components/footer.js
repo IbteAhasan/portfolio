@@ -12,12 +12,12 @@ const FooterNavWapper = styled.div`
     width: calc(100% / 3);
     .navLink {
       text-decoration: none;
-      font-size: 15px;
-      color: gray;
+      font-size: 1.8rem;
+      color: ${(props) => props.theme.colors.secondary};
       margin: 4px 0;
       line-height: 4rem;
       &:hover{
-        color: black;
+        color: ${(props) => props.theme.colors.primary};
       }
     }
   }
@@ -27,7 +27,7 @@ const StyledCredit = styled.div`
   margin: auto;
 
   font-size: 14px;
-  color: black;
+  color: ${(props) => props.theme.colors.faded};
   p {
     margin: 50px 0;
   }
@@ -43,7 +43,7 @@ export default function Footer() {
           <Link className="navLink" to="/about">
             About
           </Link>
-          <Link className="navLink" to="/project">
+          <Link className="navLink" to="/projects">
             Projects
           </Link>
         </div>

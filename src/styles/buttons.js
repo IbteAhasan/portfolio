@@ -13,7 +13,7 @@ margin: 30px 0;
 `
 export const SubsButton= styled.button`
 padding: 2rem;
-background-color: #FFFFFF;
+background-color: #F2F2F2;
 border: none;
 border-top-right-radius:10px;
 border-bottom-right-radius:10px;

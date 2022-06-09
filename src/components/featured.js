@@ -15,11 +15,11 @@ const FeaturedItems = styled.div`
   font-weight: 500;
   .featured {
     text-decoration: none;
-    color: black;
+    color: ${(props) => props.theme.colors.primary};
   }
 `;
 const FeaturedItem = styled.div`
-  border-bottom: 1px solid #dcdcdc;
+  border-bottom: 1px solid ${(props) => props.theme.colors.border};
   padding: 20px 0;
   display: flex;
   justify-content: space-between;
@@ -32,7 +32,7 @@ const FeaturedItem = styled.div`
     display: flex;
     align-items: center;
     .number {
-      color: gray;
+      color:  ${(props) => props.theme.colors.faded};
       font-size: 1.6rem;
       margin-right: 20px;
     }
@@ -44,7 +44,7 @@ const FeaturedItem = styled.div`
     svg {
       height: 22px;
       width: 22px;
-      color: black;
+      color: ${(props) => props.theme.colors.primary};
       margin-left: 10px;
     }
   }
@@ -52,7 +52,7 @@ const FeaturedItem = styled.div`
 const SeeMore = styled(Link)`
   font-size: 18px;
   text-decoration: none;
-  color: gray;
+  color: ${(props) => props.theme.colors.secondary};
   display: flex;
   align-items: center;
   margin: 30px 0;
@@ -64,7 +64,7 @@ const SeeMore = styled(Link)`
     transition: all 0.1s ease-out;
   }
   &:hover {
-    color: black;
+    color: ${(props) => props.theme.colors.primary};
     svg {
       transform: translateX(5px);
     }
@@ -106,7 +106,7 @@ export default function Featured() {
           </Link>
         ))}
       </FeaturedItems>
-      <SeeMore to="/project">
+      <SeeMore to="/projects">
         See more
         <Arrow />
       </SeeMore>

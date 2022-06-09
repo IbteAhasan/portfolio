@@ -6,7 +6,7 @@ const LetterSection = styled.section`
 margin: 180px 0;
 `
 const LetterWrapper = styled.div`
-background-color:#E5F6FD;
+background-color: ${(props) => props.theme.colors.background2};
 border:1px solid #03A9F4;
 border-radius: 5px;
 padding: 5rem;
@@ -19,7 +19,7 @@ const LetterForm =styled.form`
 display: flex;
 `
 const StyledInput = styled.input.attrs({type:"email"})`
-background-color: #F6F6F6;
+background-color: ${(props) => props.theme.colors.background1};
 padding: 2rem;
 width: 100%;
 border: none;
@@ -27,7 +27,7 @@ border-top-left-radius: 8px;
 border-bottom-left-radius:8px;
 font-size: 16px;
 ::placeholder{
-    color:gray;
+    color:${(props) => props.theme.colors.faded};
 }
 &:focus{
     border: none;

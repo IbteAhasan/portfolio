@@ -21,15 +21,16 @@ const TitleSection = styled.div`
 const StyledTitle = styled.h1`
   font-size: 3.5rem;
   line-height: 150%;
-  @media ${(props) => props.theme.breakpoints.md}{
+  color:${(props) => props.theme.colors.primary};
+  @media ${(props) => props.theme.breakpoints.md} {
     font-size: 2.5rem;
   }
 `;
 const ProjectLinks = styled.div`
   display: flex;
   svg {
-    color: black;
-    background-color: lightgray;
+    color: ${(props) => props.theme.colors.primary};
+    background-color: ${(props) => props.theme.colors.border};
     height: 30px;
     width: 30px;
     margin-left: 10px;
@@ -48,7 +49,7 @@ const IframeWrapper = styled.div`
   padding-top: 56.25%;
   border-radius: 10px;
   height: max-content;
-  box-shadow:rgb(0 0 0 / 5%) 0px 5px 10px;
+  box-shadow: rgb(0 0 0 / 5%) 0px 5px 10px;
   iframe {
     overflow: hidden;
     border: none;
@@ -76,9 +77,14 @@ const ProjectInfo = styled.div`
     margin: 10px 0;
     li {
       list-style-type: none;
+      color: ${(props) => props.theme.colors.secondary};
       line-height: 165%;
       a {
         text-decoration: none;
+        color: ${(props) => props.theme.colors.faded};
+        &:hover{
+          color: ${(props) => props.theme.colors.primary};
+        }
       }
     }
   }
@@ -90,18 +96,19 @@ const InfoTitle = styled.h4`
   display: flex;
   font-size: 16px;
   font-weight: 700;
-  color: gray;
+  color: ${(props) => props.theme.colors.secondary};
   &::after {
     content: "";
     height: 1px;
     width: 100%;
-    background-color: lightgray;
+    background-color: ${(props) => props.theme.colors.border};
     margin-left: 8px;
     flex: 1 0 20px;
   }
 `;
 const InfoText = styled.p`
   font-size: 1.7rem;
+  color: ${(props) => props.theme.colors.secondary};
   line-height: 165%;
   margin: 20px 0;
 `;
@@ -131,6 +138,9 @@ const SplitSide = styled.div`
 const Sticky = styled.div`
   position: sticky;
   top: 75px;
+  h3{
+    color: ${(props) => props.theme.colors.primary};
+  }
 `;
 
 const MarkDownWrapper = styled.article`
@@ -138,11 +148,13 @@ const MarkDownWrapper = styled.article`
     font-size: 1.8rem;
     line-height: 165%;
     margin: 5px 0;
+    color: ${(props) => props.theme.colors.secondary};
   }
 
   h2 {
     font-size: 24px;
     line-height: 150%;
+    color: ${(props) => props.theme.colors.primary};
   }
   a {
     text-decoration: none;
@@ -151,6 +163,7 @@ const MarkDownWrapper = styled.article`
     font-size: 16px;
     line-height: 170%;
     margin-left: 15px;
+    color: ${(props) => props.theme.colors.secondary};
   }
   blockquote {
     background-color: lightgray;
@@ -171,11 +184,11 @@ const SharerWrapper = styled.div`
   svg {
     height: 24px;
     width: 24px;
-    color: black;
+    color: ${(props) => props.theme.colors.primary};
     margin-left: 12px;
     margin-top: 20px;
     :hover {
-      color: gray;
+      color: ${(props) => props.theme.colors.secondary};
     }
     @media ${(props) => props.theme.breakpoints.md} {
       justify-content: center;
@@ -186,7 +199,7 @@ const SharerWrapper = styled.div`
 `;
 export default function CaseStudy({ data }) {
   const post = data.markdownRemark;
-  console.log(post.frontmatter.demo)
+  console.log(post.frontmatter.demo);
   return (
     <Layout>
       <SEO title={post.frontmatter.title} />

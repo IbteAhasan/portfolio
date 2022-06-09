@@ -21,15 +21,15 @@ const ProjectWrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color: rgb(240, 240, 240);
+  background: ${(props) => props.theme.colors.background3};
   padding: 3rem;
   border-radius: 4px;
   box-shadow: rgb(0 0 0 / 7%) 0px 5px 10px;
-  transition: all 0.15s ease;
+  transition: transform 0.15s ease;
   &:hover,
-    &:focus-within{
-      transform:translateY(-7px);
-    }
+  &:focus-within {
+    transform: translateY(-7px);
+  }
 `;
 const ProjectTop = styled.div`
   display: flex;
@@ -42,37 +42,41 @@ const ProjectTop = styled.div`
     svg {
       height: 22px;
       width: 22px;
-      color: #6b7280;
+      color: ${(props) => props.theme.colors.primary};
       margin-left: 10px;
       transition: all 0.15s;
       &:hover {
         transform: scale(1.1);
-        color: black;
+        color: ${(props) => props.theme.colors.faded};
       }
     }
   }
   .folder {
     height: 40px;
     width: 40px;
-    color: black;
+    color: ${(props) => props.theme.colors.primary};
   }
 `;
 const ProjectTitle = styled.h2`
   font-size: 2rem;
   line-height: 160%;
   margin: 10px 0;
+  color: inherit;
 `;
 const ProjectDesc = styled.div`
   p {
     font-size: 1.5rem;
     line-height: 160%;
+    color: ${(props) => props.theme.colors.secondary};
   }
 `;
 const ProjectLink = styled(Link)`
-position: static;
-text-decoration:none;
-color: black;
-&:hover{color:gray}
+  position: static;
+  text-decoration: none;
+  color: ${(props) => props.theme.colors.primary};
+  &:hover {
+    color: ${(props) => props.theme.colors.faded};
+  }
   &::before {
     top: 0;
     left: 0;
@@ -81,7 +85,7 @@ color: black;
     z-index: 0;
     width: 100%;
     height: 100%;
-    &:hover{
+    &:hover {
     }
   }
 `;
@@ -109,7 +113,9 @@ export default function Project({ data }) {
                 </div>
               </ProjectTop>
               <ProjectTitle>
-                <ProjectLink to={project.fields.slug}>{project.frontmatter.title}</ProjectLink>
+                <ProjectLink to={project.fields.slug}>
+                  {project.frontmatter.title}
+                </ProjectLink>
               </ProjectTitle>
               <ProjectDesc>
                 <p>{project.frontmatter.excerpt}</p>
@@ -125,7 +131,7 @@ export const query = graphql`
   query ProjectsQuery {
     allMarkdownRemark {
       nodes {
-        fields{
+        fields {
           slug
         }
         frontmatter {

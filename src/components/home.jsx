@@ -45,7 +45,7 @@ const Para = styled.p`
   font-weight: 400;
   margin: 30px 0;
   line-height: 150%;
-  color: ${(props) => (props.faded ? "gray" : "black")};
+  color: ${(props) => props.theme.colors.secondary};
   white-space: pre-wrap;
 `;
 const AnimatedText = styled.p`
@@ -54,7 +54,7 @@ const AnimatedText = styled.p`
   font-weight: 500;
   margin: 15px 0;
   line-height: 150%;
-  color: ${(props) => (props.faded ? "gray" : "black")};
+  color: ${(props) => props.theme.colors.primary};
   white-space: pre-wrap;
   @media ${(props) => props.theme.breakpoints.lg} {
   }
@@ -69,12 +69,12 @@ const SocialWrapper = styled.div`
   svg {
     height: 22px;
     width: 22px;
-    color: gray;
+    color: ${(props) => props.theme.colors.secondary};
     margin-right: 20px;
     transition: all 0.15s ease-out;
     cursor: pointer;
     &:hover {
-      color: black;
+      color: ${(props) => props.theme.colors.primary};
       transform: scale(1.25);
     }
   }
@@ -112,7 +112,6 @@ This is the place where I share and visualize whatever projects i've been workin
     "r",
   ];
 
-  
   return (
     <HomeSection>
       <HomeWrapper>
@@ -120,7 +119,9 @@ This is the place where I share and visualize whatever projects i've been workin
           <BigHeading>Ibte Ahasan</BigHeading>
           <AnimatedText>
             {subtext.map((letter, i) => (
-              <Letter i={i} key={i}>{letter}</Letter>
+              <Letter i={i} key={i}>
+                {letter}
+              </Letter>
             ))}
           </AnimatedText>
           <Para faded>{para}</Para>
@@ -139,7 +140,7 @@ This is the place where I share and visualize whatever projects i've been workin
             >
               <Linkedin />
             </a>
-            
+
             <a
               href="https://www.linkedin.com/in/k-a-m-ibteshum-ab5578213"
               className=""
@@ -150,6 +151,7 @@ This is the place where I share and visualize whatever projects i've been workin
         </TextWrapper>
 
         <StaticImage
+          imgStyle={{ filter: "grayScale(100%)" }}
           className="avatar"
           imgClassName="avatarImg"
           src="https://avatars.githubusercontent.com/u/97447382?v=4"
