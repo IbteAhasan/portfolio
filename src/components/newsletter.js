@@ -32,6 +32,7 @@ font-size: 16px;
 &:focus{
     border: none;
     outline: none;
+    color:${(props) => props.theme.colors.faded};
 }
 `
 
