@@ -7,10 +7,8 @@ const IndexPage = () => {
   return (
     <>
     <SEO title="Home"/>
-      <Layout>
         <Home />
         <Featured />
-      </Layout>
     </>
   );
 };

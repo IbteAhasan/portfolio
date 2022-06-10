@@ -4,11 +4,11 @@ import styled from "styled-components";
 import External from "../components/icons/external";
 import GitHub from "../components/icons/github";
 import { graphql } from "gatsby";
-import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
+
 import FbRounded from "../components/icons/facebookRound";
 import Twitter from "../components/icons/twitter";
 import SEO from "../components/seo";
-deckDeckGoHighlightElement();
+
 const CaseStudysection = styled.section`
   margin-top: 20px;
 `;
@@ -21,7 +21,7 @@ const TitleSection = styled.div`
 const StyledTitle = styled.h1`
   font-size: 3.5rem;
   line-height: 150%;
-  color:${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.primary};
   @media ${(props) => props.theme.breakpoints.md} {
     font-size: 2.5rem;
   }
@@ -82,7 +82,7 @@ const ProjectInfo = styled.div`
       a {
         text-decoration: none;
         color: ${(props) => props.theme.colors.faded};
-        &:hover{
+        &:hover {
           color: ${(props) => props.theme.colors.primary};
         }
       }
@@ -138,7 +138,7 @@ const SplitSide = styled.div`
 const Sticky = styled.div`
   position: sticky;
   top: 75px;
-  h3{
+  h3 {
     color: ${(props) => props.theme.colors.primary};
   }
 `;
@@ -201,73 +201,73 @@ export default function CaseStudy({ data }) {
   const post = data.markdownRemark;
   console.log(post.frontmatter.demo);
   return (
-    <Layout>
+    <>
       <SEO title={post.frontmatter.title} />
-      <CaseStudysection>
-        <TitleSection>
-          <StyledTitle>{post.frontmatter.title}</StyledTitle>
-          <ProjectLinks>
-            <a href={post.frontmatter.demo}>
-              <External />
-            </a>
-            <a href={post.frontmatter.src}>
-              <GitHub />
-            </a>
-          </ProjectLinks>
-        </TitleSection>
-        <ProjectInfo>
-          <div>
-            <InfoTitle>Idea</InfoTitle>
-            <InfoText>{post.frontmatter.info.idea}</InfoText>
-            <InfoTitle>Core Technologies</InfoTitle>
-            <ul>
-              {post.frontmatter.info.tech.map((t) => (
-                <li>{t}</li>
-              ))}
-            </ul>
-            {post.frontmatter.info.links && (
-              <>
-                <InfoTitle>Links & Resources</InfoTitle>
-                <ul>
-                  {post.frontmatter.info.links.map((link) => (
-                    <li>
-                      <a href={link[1]}>{link[0]}</a>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
-          </div>
-          <IframeWrapper>
-            <iframe
-              width="560"
-              height="315"
-              src={post.frontmatter.iframe}
-            ></iframe>
-          </IframeWrapper>
-        </ProjectInfo>
-        <SplitLayout>
-          <SplitMain>
-            <MarkDownWrapper
-              dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
-            />
-          </SplitMain>
-          <SplitSide>
-            <Sticky>
-              <h3>Share on</h3>
-              <SharerWrapper>
-                <a href="">
-                  <FbRounded />
-                </a>
-                <a href="">
-                  <Twitter />
-                </a>
-              </SharerWrapper>
-            </Sticky>
-          </SplitSide>
-        </SplitLayout>
-      </CaseStudysection>
-    </Layout>
+        <CaseStudysection>
+          <TitleSection>
+            <StyledTitle>{post.frontmatter.title}</StyledTitle>
+            <ProjectLinks>
+              <a href={post.frontmatter.demo}>
+                <External />
+              </a>
+              <a href={post.frontmatter.src}>
+                <GitHub />
+              </a>
+            </ProjectLinks>
+          </TitleSection>
+          <ProjectInfo>
+            <div>
+              <InfoTitle>Idea</InfoTitle>
+              <InfoText>{post.frontmatter.info.idea}</InfoText>
+              <InfoTitle>Core Technologies</InfoTitle>
+              <ul>
+                {post.frontmatter.info.tech.map((t) => (
+                  <li>{t}</li>
+                ))}
+              </ul>
+              {post.frontmatter.info.links && (
+                <>
+                  <InfoTitle>Links & Resources</InfoTitle>
+                  <ul>
+                    {post.frontmatter.info.links.map((link) => (
+                      <li>
+                        <a href={link[1]}>{link[0]}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+            </div>
+            <IframeWrapper>
+              <iframe
+                width="560"
+                height="315"
+                src={post.frontmatter.iframe}
+              ></iframe>
+            </IframeWrapper>
+          </ProjectInfo>
+          <SplitLayout>
+            <SplitMain>
+              <MarkDownWrapper
+                dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
+              />
+            </SplitMain>
+            <SplitSide>
+              <Sticky>
+                <h3>Share on</h3>
+                <SharerWrapper>
+                  <a href="">
+                    <FbRounded />
+                  </a>
+                  <a href="">
+                    <Twitter />
+                  </a>
+                </SharerWrapper>
+              </Sticky>
+            </SplitSide>
+          </SplitLayout>
+        </CaseStudysection>
+    </>
   );
 }
 

@@ -10,7 +10,7 @@ import Dark from "../themes/dark";
 import { useDarkMode } from "../components/hooks/useDarkMode";
 export default function Layout({ children }) {
   const [progress, setProgress] = useState(30);
-  const [theme, themeToggler] = useDarkMode();
+  const [theme, themeToggler, mountedComponent] = useDarkMode();
   const themeMode = theme === "Light" ? Light : Dark;
   useEffect(() => {
     const timer = setTimeout(() => setProgress(100), "250");
@@ -18,21 +18,24 @@ export default function Layout({ children }) {
       clearTimeout(timer);
     };
   }, []);
+  if (!mountedComponent) return <div />;
   return (
-    <main>
+    
       <Theme themeMode={themeMode}>
+        <main>
         <Wrapper>
           <LoadingBar
             color="#ED75CC"
             progress={progress}
             onLoaderFinished={() => setProgress(0)}
           />
-          <Navbar themeToggler={themeToggler} theme={theme}/>
+          <Navbar themeToggler={themeToggler} theme={theme} />
           {children}
           <NewsLetter />
           <Footer />
         </Wrapper>
+        </main>
       </Theme>
-    </main>
+    
   );
 }

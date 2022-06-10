@@ -92,7 +92,7 @@ const ProjectLink = styled(Link)`
 export default function Project({ data }) {
   const projects = data.allMarkdownRemark.nodes;
   return (
-    <Layout>
+    <>
       <SEO title="Project Archive" />
       <ProjectSection>
         <StyledHeading>Project Archive</StyledHeading>
@@ -124,7 +124,7 @@ export default function Project({ data }) {
           ))}
         </ProjectsGrid>
       </ProjectSection>
-    </Layout>
+    </>
   );
 }
 export const query = graphql`
