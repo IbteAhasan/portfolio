@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Link } from "gatsby";
+import SEO from "../components/seo";
 import styled from "styled-components";
 // styles
 const Wrapper = styled.div`
@@ -31,6 +32,7 @@ const StyledSubtitle = styled.h2`
 const NotFoundPage = () => {
   return (
     <Wrapper>
+      <SEO title="404"/>
       <StyledTitle>404</StyledTitle>
       <StyledSubtitle>Opps, seems like you are lost!</StyledSubtitle>
       <div className="goBack">
