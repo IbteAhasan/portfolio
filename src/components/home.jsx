@@ -41,7 +41,7 @@ const BigHeading = styled.h1`
   color: transparent;
 `;
 const Para = styled.p`
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 400;
   margin: 30px 0;
   line-height: 150%;
@@ -141,10 +141,7 @@ This is the place where I share and visualize whatever projects i've been workin
               <Linkedin />
             </a>
 
-            <a
-              href="https://www.linkedin.com/in/k-a-m-ibteshum-ab5578213"
-              className=""
-            >
+            <a href="https://codepen.io/ibteahasan" className="">
               <Codepen />
             </a>
           </SocialWrapper>

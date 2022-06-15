@@ -58,10 +58,10 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Ibte Ahasan`,
-        short_name: `IA`,
+        short_name: `IbteAhasan`,
         start_url: `/`,
         background_color: `#f7f0eb`,
-        theme_color: `#a2466c`,
+        theme_color: `rgb(249,250,251)`,
         display: `standalone`,
         icon: `${__dirname}/src/images/icon.svg`,
       },

@@ -150,7 +150,6 @@ export default function Navbar({ themeToggler, theme }) {
   const navMenuItems = [
     { name: "Home", link: "/" },
     { name: "Projects", link: "/projects" },
-    { name: "Blog", link: "/blog" },
     { name: "Contact", link: "/contact" },
   ];
 

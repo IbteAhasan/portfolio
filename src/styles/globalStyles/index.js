@@ -1,6 +1,6 @@
 import styled from "styled-components";
 export const StyledHeading = styled.h2`
-  text-align: left;
+  text-align: ${(props) => props.align?props.align:'left'};
   font-size: 3.25rem;
   color: ${(props) => props.theme.colors.primary};
   margin: 20px 0;
@@ -9,7 +9,8 @@ export const StyledHeading = styled.h2`
   }
 `;
 export const Subtext = styled.p`
-  font-size: 2rem;
+  font-size: 1.8rem;
+  text-align: ${(props) => props.align?props.align:'left'};
   font-weight: 400;
   line-height: 150%;
   margin: 15px 0;
