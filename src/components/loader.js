@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { waveText } from "../styles/keyframes";
 const LoaderWrapper = styled.div`
   display: flex;
-  height: 100vh;
+  height: 95vh;
   width: 100%;
   align-items: center;
   justify-content: center;

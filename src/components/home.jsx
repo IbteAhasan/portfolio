@@ -4,7 +4,7 @@ import Github from "./icons/github";
 import Facebook from "./icons/facebook";
 import Codepen from "./icons/codepen";
 import Linkedin from "./icons/linkedin";
-import { WaveAnimate } from "../styles/keyframes";
+import { waveText } from "../styles/keyframes";
 import { StaticImage } from "gatsby-plugin-image";
 const HomeSection = styled.section`
   min-height: calc(100vh - 80px);
@@ -60,7 +60,8 @@ const AnimatedText = styled.p`
   }
 `;
 const Letter = styled.span`
-  animation: ${WaveAnimate} 2.2s ease-out;
+margin-right: 1px;
+  animation: ${waveText} 2s ease-out;
   animation-delay: calc(0.1s * ${(props) => props.i});
 `;
 const SocialWrapper = styled.div`
@@ -86,7 +87,7 @@ export default function Home() {
 This is the place where I share and visualize whatever projects i've been working/worked on.`;
 
   const subtext = [
-    "f",
+    "F",
     "u",
     "l",
     "l",

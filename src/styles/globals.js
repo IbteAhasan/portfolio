@@ -15,6 +15,7 @@ ${normalize}
 body{
     position: relative;
     background-color: ${(props) => props.theme.colors.background1};
+    overflow: hidden;
 }
 
 /* width */

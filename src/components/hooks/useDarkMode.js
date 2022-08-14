@@ -18,7 +18,7 @@ export const useDarkMode = () => {
     setMountedComponent(true);
     setTimeout(() => {
       setloaderState(false);
-    }, 3000);
+    }, 2500);
   }, []);
   return [theme, themeToggler, mountedComponent,loaderState];
 };

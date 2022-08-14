@@ -11,7 +11,7 @@ import Dark from "../themes/dark";
 import { useDarkMode } from "../components/hooks/useDarkMode";
 export default function Layout({ children }) {
   const [progress, setProgress] = useState(30);
-  const [theme, themeToggler, mountedComponent,loaderState] = useDarkMode();
+  const [theme, themeToggler, mountedComponent, loaderState] = useDarkMode();
   const themeMode = theme === "Light" ? Light : Dark;
   useEffect(() => {
     const timer = setTimeout(() => setProgress(100), "250");
@@ -19,9 +19,9 @@ export default function Layout({ children }) {
       clearTimeout(timer);
     };
   }, []);
-  if (!mountedComponent) return <div/>
-  else{
-    if(loaderState){
+  if (!mountedComponent) return<div/>;
+  else {
+    if (loaderState) {
       return (
         <>
           <Theme themeMode={themeMode}>
@@ -31,8 +31,7 @@ export default function Layout({ children }) {
           </Theme>
         </>
       );
-    }
-    else{
+    } else {
       return (
         <Theme themeMode={themeMode}>
           <main>
@@ -52,6 +51,4 @@ export default function Layout({ children }) {
       );
     }
   }
-    
-  
 }
