@@ -73,6 +73,7 @@ module.exports = {
           `limelight`,
           `Montserrat\:200,300,400,400i,500,600,700,800,900`,
           `Barlow\:200,300,400,200i,300i,400i,500,600,700,800,900`,
+          `Dancing Script\:400,500,600,700`,
         ],
         display: "swap",
       },

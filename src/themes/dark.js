@@ -3,6 +3,7 @@ const Dark = {
   fonts: {
     title: "Space Grotesk, sans-serif",
     main: "Barlow,sans-serif",
+    logo: "Dancing Script,sans-serif",
   },
   // Colors for layout
   colors: {
